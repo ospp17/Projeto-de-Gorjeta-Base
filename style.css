@@ -161,8 +161,19 @@ main {
     padding-block: 0.5rem;
 }
 
-@media(min-width: 923px) {
+@media(min-width: 920px) {
     
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100shv;
+        justify-content: center;
+        gap: 5rem;
+    }
+    
+    header {
+        padding: 0;
+    }
 
     main {
         display: flex;
@@ -176,7 +187,25 @@ main {
         width: 100%;
     }
 
+    .conta input::-webkit-inner-spin-button,
+    .pessoa input::-webkit-inner-spin-button {
+        display: none;
+
+    }
+
     .gorjeta div {
-        grid-template-columns: 1fr 1fr 1frs;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .resultados {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding: 2.5rem;
+    }
+
+    .resultados div > strong {
+        font-size: 3rem;
     }
 }
