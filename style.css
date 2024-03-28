@@ -16,6 +16,8 @@
     --green-800: #00474B;
     --light-green: #26C2AE;
     --white:#FFFFFF;
+    --green-hover: #9FE8DF;
+    --danger: #E17457
 }
 
 body {
@@ -48,7 +50,7 @@ main {
 }
 
 .conta div,
-.pessoa div {
+.pessoa .input-box    {
     margin-top: 0.4rem;
     background-color: var(--green-100);
     padding: 0.4rem 1.2rem;
@@ -76,7 +78,11 @@ main {
 }
 
 .conta:has(input:focus) div,
-.pessoa:has(input:focus) div {
+.conta:has(input:hover) div,
+.pessoa:has(input:focus) .input-box,
+.pessoa:has(input:hover) .input-box,
+.gorjeta #outra:focus,
+.gorjeta #outra:hover {
     outline: 2px solid var(--light-green);
 }
 
@@ -100,6 +106,12 @@ main {
     color: var(--white);
 }
 
+.gorjeta input[type="button"]:hover,
+.resultados button:hover {
+    background-color: var(--green-hover);
+    cursor: pointer;
+}
+
 .gorjeta #outra {
     width: 100%;
     background-color: var(--green-100);
@@ -110,7 +122,20 @@ main {
     color: var(--green-300);
 }
 
+.pessoa .textos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pessoa #erro-div {
+    outline: 2px solid var(--danger);
+}
+
 .pessoa #erro {
+    font-size: 0.75rem;
+    color: var(--danger);
+    font-weight: 700;
     display: none;
 }
 
@@ -188,7 +213,8 @@ main {
     }
 
     .conta input::-webkit-inner-spin-button,
-    .pessoa input::-webkit-inner-spin-button {
+    .pessoa input::-webkit-inner-spin-button,
+    .gorjeta #outra ::-webkit-inner-spin-button {
         display: none;
 
     }
