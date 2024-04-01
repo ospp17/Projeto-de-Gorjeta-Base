@@ -2,22 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: "space mono", serif;
+
+    font-family: "Space Mono", sefif;
 }
 
 :root {
     --green-100: #f3f9fa;
     --green-200: #c5e4e7;
-    --green-300: #9EBBBD;
-    --green-400: #7F9D9F;
-    --green-500: #5E7A7D;
+    --green-300: #9ebbbd;
+    --green-400: #7f9d9f;
+    --green-500: #5e7a7d;
     --green-600: #547878;
-    --green-700: #3D6666;
-    --green-800: #00474B;
-    --light-green: #26C2AE;
-    --white:#FFFFFF;
-    --green-hover: #9FE8DF;
-    --danger: #E17457
+    --green-700: #3d6666;
+    --green-800: #00474b;
+    --light-green: #26c2ae;
+    --white: #ffffff;
+    --green-hover: #9fe8df;
+    --danger: #e17457;
 }
 
 body {
@@ -38,30 +39,30 @@ main {
 
 .conta,
 .gorjeta,
-.pessoa {
+.pessoas {
     margin-bottom: 2rem;
 }
 
 .conta label,
 .gorjeta label,
-.pessoa label {
+.pessoas label {
     color: var(--green-500);
     font-weight: 700;
 }
 
 .conta div,
-.pessoa .input-box    {
+.pessoas .input-box {
     margin-top: 0.4rem;
     background-color: var(--green-100);
     padding: 0.4rem 1.2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 0.3125rem;
+    border-radius: 0.3125 rem;
 }
 
 .conta input,
-.pessoa input {
+.pessoas input {
     border: none;
     text-align: right;
     width: 100%;
@@ -73,25 +74,28 @@ main {
 }
 
 .conta input::placeholder,
-.pessoa input::placeholder {
+.pessoas input::placeholder, 
+.gorjeta #outra::placeholder {
     color: var(--green-300);
 }
 
+/* quando o usuário tiver clicado na input */
 .conta:has(input:focus) div,
 .conta:has(input:hover) div,
-.pessoa:has(input:focus) .input-box,
-.pessoa:has(input:hover) .input-box,
+.pessoas:has(input:focus) .input-box,
+.pessoas:has(input:hover) .input-box,
 .gorjeta #outra:focus,
 .gorjeta #outra:hover {
     outline: 2px solid var(--light-green);
+    cursor: pointer;
 }
-
 .gorjeta div {
     margin-top: 1rem;
 
     display: grid;
+    /* 1fr = 1 fração */
     grid-template-columns: 1fr 1fr;
-    gap: 1rem   ;
+    gap: 1rem;
 }
 
 .gorjeta input {
@@ -101,11 +105,10 @@ main {
     text-align: center;
     outline: none;
     padding-block: 0.4rem;
-    border-radius: 0.3125;
+    border-radius: 0.3125rem;
     background-color: var(--green-800);
     color: var(--white);
 }
-
 
 .gorjeta .botao-ativo {
     background-color: var(--light-green);
@@ -121,24 +124,20 @@ main {
 .gorjeta #outra {
     width: 100%;
     background-color: var(--green-100);
-    color: var(--green-800);
+    color: var(--green-500);
 }
 
-.gorjeta #outra::placeholder {
-    color: var(--green-300);
-}
-
-.pessoa .textos {
+.pessoas .textos {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.pessoa #erro-div {
+.pessoas #erro-div {
     outline: 2px solid var(--danger);
 }
 
-.pessoa #erro {
+.pessoas #erro {
     font-size: 0.75rem;
     color: var(--danger);
     font-weight: 700;
@@ -151,9 +150,9 @@ main {
     padding: 1.5rem;
 }
 
-.resultados div {
-    display:flex ;
-    justify-content:space-between ;
+.resultados div div {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -167,6 +166,7 @@ main {
     font-size: 1rem;
 }
 
+/* somente o strong q é filho da div */
 .resultados div > strong {
     color: var(--light-green);
     font-size: 2rem;
@@ -176,32 +176,37 @@ main {
     margin-bottom: 1.25rem;
 }
 
-.resultados , total {
+.resultados .total {
     margin-bottom: 2rem;
 }
 
 .resultados button {
     width: 100%;
-    background: var(--light-green);
+    background-color: var(--light-green);
     border: none;
     border-radius: 0.3125rem;
     color: var(--green-800);
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.25rem;
+    font-size: 1.25;
     padding-block: 0.5rem;
 }
 
+.conta input::-webkit-inner-spin-button,
+.pessoas input::-webkit-inner-spin-button, 
+.gorjeta #outra::-webkit-inner-spin-button{
+    display: none;
+}
+
 @media(min-width: 920px) {
-    
     body {
         display: flex;
         flex-direction: column;
-        min-height: 100shv;
+        min-height: 100svh;
         justify-content: center;
         gap: 5rem;
     }
-    
+
     header {
         padding: 0;
     }
@@ -209,6 +214,7 @@ main {
     main {
         display: flex;
         gap: 3rem;
+        padding: 3rem;
         border-radius: 1.5625rem;
         max-width: 57.5rem;
         margin-inline: auto;
@@ -218,14 +224,7 @@ main {
         width: 100%;
     }
 
-    .conta input::-webkit-inner-spin-button,
-    .pessoa input::-webkit-inner-spin-button,
-    .gorjeta #outra ::-webkit-inner-spin-button {
-        display: none;
-
-    }
-
-    .gorjeta div {
+    .gorjeta div { 
         grid-template-columns: 1fr 1fr 1fr;
     }
 
